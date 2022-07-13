@@ -3,7 +3,7 @@ package com.empresa.main;
 import java.util.List;
 import com.empresa.entities.Colaborador;
 
-public class Application {
+public class Main {
 
   public static void main(String[] args) {
 
@@ -25,6 +25,7 @@ public class Application {
   public static List<Colaborador> mockColaboradoresAtivos() {
     ColaboradoresMock colabMock = new ColaboradoresMock();
     colabMock.setListaInicial();
+    colabMock.mockRegistroVendas();
     return colabMock.getListaInicial();
   }
 
