@@ -73,4 +73,8 @@ public class Colaborador {
     this.listaFuncionarios.add(novoFuncionario);
   }
 
+  public void adicionarAumentoAnual() {
+    this.setSalario(getSalario());
+  }
+
 }

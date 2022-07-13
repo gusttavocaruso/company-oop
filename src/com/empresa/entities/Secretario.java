@@ -8,6 +8,7 @@ public class Secretario extends Colaborador {
     this.setBeneficio(this.getSalario() * 0.2);
   }
 
+  @Override
   public void adicionarAumentoAnual() {
     this.setSalario(this.getSalario() + 1000);
   }

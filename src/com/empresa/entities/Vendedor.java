@@ -10,6 +10,7 @@ public class Vendedor extends Colaborador {
     this.setBeneficio(12000 * 0.3);
   }
 
+  @Override
   public void adicionarAumentoAnual() {
     this.setSalario(this.getSalario() + 1800);
   }

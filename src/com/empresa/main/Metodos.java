@@ -25,9 +25,7 @@ public class Metodos {
 
     for (Colaborador colab : colaboradoresAtivos) {
 
-      String[] colabContratacao = colab.getContratacao().split("/");
-      String mesContratacao = colabContratacao[0];
-      String anoContratacao = colabContratacao[1];
+      concederAjustesSalarioByAno(colab, mes, ano);
       
       if (colab.getCargo().equals("Gerente")) {
 
@@ -38,6 +36,28 @@ public class Metodos {
     }
 
     return total;
+  }
+
+  public void concederAjustesSalarioByAno(Colaborador colab, String mes, String ano) {
+
+    String[] colabContratacao = colab.getContratacao().split("/");
+    Integer mesContratacao = Integer.parseInt(colabContratacao[0]);
+    Integer anoContratacao = Integer.parseInt(colabContratacao[1]);
+
+    Integer anosDeEmpresa = Integer.parseInt(ano) - anoContratacao;
+    Integer mesesDeEmpresa = Integer.parseInt(mes) - mesContratacao;
+
+    var cc = 0;
+    if (anosDeEmpresa > 1) {
+
+      do {
+        colab.adicionarAumentoAnual();
+        cc += 1;
+      } while (anosDeEmpresa.equals(cc));
+
+    } else if (anosDeEmpresa.equals(1) && mesesDeEmpresa >= 0) {
+      colab.adicionarAumentoAnual();
+    }
   }
 
 }

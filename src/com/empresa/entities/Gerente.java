@@ -7,6 +7,7 @@ public class Gerente extends Colaborador {
     this.setSalario(20000);
   }
 
+  @Override
   public void adicionarAumentoAnual() {
     this.setSalario(this.getSalario() + 3000);
   }
