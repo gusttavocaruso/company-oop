@@ -6,7 +6,7 @@ import com.empresa.entities.Gerente;
 import com.empresa.entities.Secretario;
 import com.empresa.entities.Vendedor;
 
-public class RhMethods {
+public class ColaboradoresMock {
 
   private Colaborador col = new Colaborador();
 
@@ -21,20 +21,6 @@ public class RhMethods {
 
   public List<Colaborador> getListaInicial() {
     return this.col.listarFuncionariosAtivos();
-  }
-
-  public Double totalPagarMes(List<Colaborador> colaboradoresAtivos) {
-    Double total = 0.0;
-
-    for (Colaborador colaborador : colaboradoresAtivos) {
-      if (colaborador.getCargo().equals("Gerente")) {
-        total += (colaborador.getSalario());
-      } else {
-        total += (colaborador.getSalario() + colaborador.getBeneficio());
-      }
-    }
-
-    return total;
   }
 
 }

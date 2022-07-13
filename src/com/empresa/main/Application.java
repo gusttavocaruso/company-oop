@@ -1,20 +1,31 @@
 package com.empresa.main;
 
+import java.util.List;
+import com.empresa.entities.Colaborador;
+
 public class Application {
 
   public static void main(String[] args) {
-    RhMethods rhMetodos = new RhMethods();
 
-    //Mock funcionários
-    rhMetodos.setListaInicial();
+    /**
+     * Mockando um getAll no banco de dados.
+     * @return lista de funcionários ativos.
+     */
+    var colaboradoresAtivos = mockColaboradores();
 
-    var colaboradoresAtivos = rhMetodos.getListaInicial();
+    Metodos method = new Metodos();
 
-    Double totalPagarMes = rhMetodos.totalPagarMes(colaboradoresAtivos);
+    Double totalPagarMes = method.totalPagarMes(colaboradoresAtivos);
 
 
     System.out.println(totalPagarMes);
 
+  }
+
+  public static List<Colaborador> mockColaboradores() {
+    ColaboradoresMock colabMock = new ColaboradoresMock();
+    colabMock.setListaInicial();
+    return colabMock.getListaInicial();
   }
 
 }
