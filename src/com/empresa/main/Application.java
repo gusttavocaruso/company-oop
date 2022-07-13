@@ -8,13 +8,14 @@ public class Application {
   public static void main(String[] args) {
 
     Metodos method = new Metodos();
-    var colaboradoresAtivos = mockColaboradores();
+    var colaboradoresAtivos = mockColaboradoresAtivos();
 
     Double totalPagarThisMes = method.totalPagarMes(colaboradoresAtivos);
-    Double totalPagarByData = method.totalPagarByData(colaboradoresAtivos, "07", "2022");
+    Double totalPagarByData = method.totalPagarByData(colaboradoresAtivos, "05", "2022");
 
 
-    System.out.println(totalPagarThisMes);
+    // System.out.println(totalPagarThisMes);
+    System.out.println(totalPagarByData);
 
   }
 
@@ -22,7 +23,7 @@ public class Application {
    * Mockando um getAll no banco de dados.
    * @return lista de funcionários ativos.
    */
-  public static List<Colaborador> mockColaboradores() {
+  public static List<Colaborador> mockColaboradoresAtivos() {
     ColaboradoresMock colabMock = new ColaboradoresMock();
     colabMock.setListaInicial();
     return colabMock.getListaInicial();

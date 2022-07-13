@@ -5,7 +5,7 @@ import java.util.List;
 import com.empresa.entities.Colaborador;
 
 public class Metodos {
-  
+
   public Double totalPagarMes(List<Colaborador> colaboradoresAtivos) {
     Double total = 0.0;
 
@@ -20,15 +20,13 @@ public class Metodos {
     return total;
   }
 
-  public Double totalPagarByData(List<Colaborador> colaboradoresAtivos, String mes, String ano) {
+  public Double totalPagarByData(List<Colaborador> colabsAtivos, String mes, String ano) {
     Double total = 0.0;
 
-    for (Colaborador colab : colaboradoresAtivos) {
-
+    for (Colaborador colab : colabsAtivos) {
       concederAjustesSalarioByAno(colab, mes, ano);
-      
-      if (colab.getCargo().equals("Gerente")) {
 
+      if (colab.getCargo().equals("Gerente")) {
         total += (colab.getSalario());
       } else {
         total += (colab.getSalario() + colab.getBeneficio());
@@ -38,23 +36,25 @@ public class Metodos {
     return total;
   }
 
+  /**
+   * Método para conceder aumento anual no salário do colaborador de acordo com o cargo.
+   * @param colab colaborador da lista de colaboradores ativos.
+   */
   public void concederAjustesSalarioByAno(Colaborador colab, String mes, String ano) {
-
     String[] colabContratacao = colab.getContratacao().split("/");
     Integer mesContratacao = Integer.parseInt(colabContratacao[0]);
     Integer anoContratacao = Integer.parseInt(colabContratacao[1]);
 
     Integer anosDeEmpresa = Integer.parseInt(ano) - anoContratacao;
     Integer mesesDeEmpresa = Integer.parseInt(mes) - mesContratacao;
+    System.out.println(mesesDeEmpresa);
 
     var cc = 0;
     if (anosDeEmpresa > 1) {
-
-      do {
+      while (anosDeEmpresa != cc) {
         colab.adicionarAumentoAnual();
         cc += 1;
-      } while (anosDeEmpresa.equals(cc));
-
+      }
     } else if (anosDeEmpresa.equals(1) && mesesDeEmpresa >= 0) {
       colab.adicionarAumentoAnual();
     }

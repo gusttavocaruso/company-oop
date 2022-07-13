@@ -11,12 +11,12 @@ public class ColaboradoresMock {
   private Colaborador col = new Colaborador();
 
   public void setListaInicial() {
-    col.adicionarFuncionario(new Secretario("Jorge Carvalho", "01/2018"));
-    col.adicionarFuncionario(new Secretario("Maria Souza", "12/2015"));
-    col.adicionarFuncionario(new Vendedor("Ana Silva", "12/2021"));
-    col.adicionarFuncionario(new Vendedor("João Mendes", "12/2021"));
-    col.adicionarFuncionario(new Gerente("Juliana Alves", "07/2017"));
-    col.adicionarFuncionario(new Gerente("Bendo Albino", "03/2014"));
+    // col.adicionarFuncionario(new Secretario("Jorge Carvalho", "01/2018"));
+    // col.adicionarFuncionario(new Secretario("Maria Souza", "12/2015"));
+    // col.adicionarFuncionario(new Vendedor("Ana Silva", "12/2021"));
+    // col.adicionarFuncionario(new Vendedor("João Mendes", "12/2021"));
+    // col.adicionarFuncionario(new Gerente("Juliana Alves", "07/2017"));
+    col.adicionarFuncionario(new Gerente("Bendo Albino", "06/2020"));
   }
 
   public List<Colaborador> getListaInicial() {

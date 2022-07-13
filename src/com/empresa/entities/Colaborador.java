@@ -11,6 +11,7 @@ public class Colaborador {
 
   private Integer salario;
   private Double beneficio;
+  private Integer bonusAnual;
 
   public List<Colaborador> listaFuncionarios;
 
@@ -65,6 +66,14 @@ public class Colaborador {
     this.beneficio = beneficio;
   }
 
+  public Integer getBonusAnual() {
+    return bonusAnual;
+  }
+
+  public void setBonusAnual(Integer bonusAnual) {
+    this.bonusAnual = bonusAnual;
+  }
+
   public List<Colaborador> listarFuncionariosAtivos() {
     return this.listaFuncionarios;
   }
@@ -74,7 +83,7 @@ public class Colaborador {
   }
 
   public void adicionarAumentoAnual() {
-    this.setSalario(getSalario());
+    this.setSalario(this.getSalario() + this.bonusAnual);
   }
 
 }
