@@ -11,11 +11,10 @@ public class Application {
     var colaboradoresAtivos = mockColaboradoresAtivos();
 
     Double totalPagarThisMes = method.totalPagarMes(colaboradoresAtivos);
-    Double totalPagarByData = method.totalPagarByData(colaboradoresAtivos, "05", "2022");
-
+    Double totalPagarByData = method.totalPagarByData(colaboradoresAtivos, "06", "2022");
 
     // System.out.println(totalPagarThisMes);
-    System.out.println(totalPagarByData);
+    System.out.println("Total a pagar no mês selecionado R$: " + totalPagarByData);
 
   }
 

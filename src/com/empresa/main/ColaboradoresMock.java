@@ -15,7 +15,7 @@ public class ColaboradoresMock {
     // col.adicionarFuncionario(new Secretario("Maria Souza", "12/2015"));
     // col.adicionarFuncionario(new Vendedor("Ana Silva", "12/2021"));
     // col.adicionarFuncionario(new Vendedor("João Mendes", "12/2021"));
-    // col.adicionarFuncionario(new Gerente("Juliana Alves", "07/2017"));
+    col.adicionarFuncionario(new Gerente("Juliana Alves", "06/2021"));
     col.adicionarFuncionario(new Gerente("Bendo Albino", "06/2020"));
   }
 

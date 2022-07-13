@@ -46,17 +46,12 @@ public class Metodos {
     Integer anoContratacao = Integer.parseInt(colabContratacao[1]);
 
     Integer anosDeEmpresa = Integer.parseInt(ano) - anoContratacao;
-    Integer mesesDeEmpresa = Integer.parseInt(mes) - mesContratacao;
-    System.out.println(mesesDeEmpresa);
+    Integer mesesDeEmpresa = (Integer.parseInt(mes) - mesContratacao) + (anosDeEmpresa * 12);
 
-    var cc = 0;
-    if (anosDeEmpresa > 1) {
-      while (anosDeEmpresa != cc) {
-        colab.adicionarAumentoAnual();
-        cc += 1;
-      }
-    } else if (anosDeEmpresa.equals(1) && mesesDeEmpresa >= 0) {
+    var cc = mesesDeEmpresa / 12;
+    while (cc != 0) {
       colab.adicionarAumentoAnual();
+      cc -= 1;
     }
   }
 
