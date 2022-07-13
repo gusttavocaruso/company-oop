@@ -13,17 +13,17 @@ public class Colaborador {
   private Double beneficio;
   private Integer bonusAnual;
 
-  public List<Colaborador> listaFuncionarios;
+  public List<Colaborador> listaColaboradores;
 
   public Colaborador() {
-    this.listaFuncionarios = new ArrayList<>();
+    this.listaColaboradores = new ArrayList<>();
   }
 
   public Colaborador(String nome, String cargo, String contratacao) {
     this.nome = nome;
     this.cargo = cargo;
     this.contratacao = contratacao;
-    this.listaFuncionarios = new ArrayList<>();
+    this.listaColaboradores = new ArrayList<>();
   }
 
   public String getNome() {
@@ -74,12 +74,12 @@ public class Colaborador {
     this.bonusAnual = bonusAnual;
   }
 
-  public List<Colaborador> listarFuncionariosAtivos() {
-    return this.listaFuncionarios;
+  public List<Colaborador> listarColaboradoresAtivos() {
+    return this.listaColaboradores;
   }
 
-  public void adicionarFuncionario(Colaborador novoFuncionario) {
-    this.listaFuncionarios.add(novoFuncionario);
+  public void addColaborador(Colaborador novoFuncionario) {
+    this.listaColaboradores.add(novoFuncionario);
   }
 
   public void adicionarAumentoAnual() {

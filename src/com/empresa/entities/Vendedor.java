@@ -5,33 +5,27 @@ import java.util.Map;
 
 public class Vendedor extends Colaborador {
 
-  private Long totalVendasMes;
-  Map<String, Integer> registroVendasByMes;
+  private Map<String, Integer> registroVendas;
 
   public Vendedor(String nome, String contratacao) {
     super(nome, "Vendedor", contratacao);
     this.setSalario(12000);
-    this.setBeneficio(12000 * 0.3);
+    this.setBeneficio(0.3);
     this.setBonusAnual(1800);
-    this.registroVendasByMes = new HashMap<>();
+    this.registroVendas = new HashMap<>();
   }
 
-  public Long getTotalVendasMes() {
-    return totalVendasMes;
-  }
-
-  public void setTotalVendasMes(Long totalVendasMes) {
-    this.totalVendasMes = totalVendasMes;
-  }
-
-  public Map<String, Integer> getRegistroVendasByMes() {
-    return registroVendasByMes;
+  public Map<String, Integer> getRegistroVendas() {
+    return this.registroVendas;
   }
 
   public void addVendaByData(String data, Integer totalVendas) {
-    this.registroVendasByMes.put(data, totalVendas);
+    this.registroVendas.put(data, totalVendas);
   }
 
-  
+  public Double getComissaoByMes(String data) {
+    Integer vendasMes = this.getRegistroVendas().get(data);
+    return this.getBeneficio() * vendasMes;
+  }
 
 }

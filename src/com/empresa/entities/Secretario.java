@@ -9,9 +9,4 @@ public class Secretario extends Colaborador {
     this.setBonusAnual(1000);
   }
 
-  // @Override
-  // public void adicionarAumentoAnual() {
-  //   this.setSalario(this.getSalario() + 1000);
-  // }
-
 }

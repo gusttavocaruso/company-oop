@@ -11,7 +11,7 @@ public class Main {
     var colaboradoresAtivos = mockColaboradoresAtivos();
 
     Double totalPagarThisMes = method.totalPagarMes(colaboradoresAtivos);
-    Double totalPagarByData = method.totalPagarByData(colaboradoresAtivos, "06", "2022");
+    Double totalPagarByData = method.totalPagarByData(colaboradoresAtivos, "12", "2021");
 
     // System.out.println(totalPagarThisMes);
     System.out.println("Total a pagar no mês selecionado R$: " + totalPagarByData);
@@ -24,9 +24,11 @@ public class Main {
    */
   public static List<Colaborador> mockColaboradoresAtivos() {
     ColaboradoresMock colabMock = new ColaboradoresMock();
-    colabMock.setListaInicial();
+
+    colabMock.mockListaColaboradores();
     colabMock.mockRegistroVendas();
-    return colabMock.getListaInicial();
+
+    return colabMock.getListaColaboradores();
   }
 
 }
