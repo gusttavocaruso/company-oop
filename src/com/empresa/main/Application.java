@@ -7,21 +7,21 @@ public class Application {
 
   public static void main(String[] args) {
 
-    /**
-     * Mockando um getAll no banco de dados.
-     * @return lista de funcionários ativos.
-     */
+    Metodos method = new Metodos();
     var colaboradoresAtivos = mockColaboradores();
 
-    Metodos method = new Metodos();
+    Double totalPagarThisMes = method.totalPagarMes(colaboradoresAtivos);
+    Double totalPagarByData = method.totalPagarByData(colaboradoresAtivos, "07", "2022");
 
-    Double totalPagarMes = method.totalPagarMes(colaboradoresAtivos);
 
-
-    System.out.println(totalPagarMes);
+    System.out.println(totalPagarThisMes);
 
   }
 
+  /**
+   * Mockando um getAll no banco de dados.
+   * @return lista de funcionários ativos.
+   */
   public static List<Colaborador> mockColaboradores() {
     ColaboradoresMock colabMock = new ColaboradoresMock();
     colabMock.setListaInicial();
