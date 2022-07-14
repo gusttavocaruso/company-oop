@@ -1,36 +1,48 @@
 package com.empresa.main;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
 import com.empresa.entities.Colaborador;
 
 public class Main {
 
+  static final ColaboradoresMock colabMock = new ColaboradoresMock();
+  static final Metodos method = new Metodos();
+
   public static void main(String[] args) {
 
-    Metodos method = new Metodos();
     var colaboradoresAtivos = mockColaboradoresAtivos();
+    var colaboradoresComBeneficio = mockColaboradoresComBeneficio();
 
-    Double totalPagarThisMes = method.totalPagarMes(colaboradoresAtivos);
-    Double totalPagarByData = method.totalPagarByData(colaboradoresAtivos, "12", "2021");
+    // Double totalPagarThisMes = method.totalPagarMes(colaboradoresAtivos);
+    Double totalPagarByData = method.totalPagarByData(colaboradoresAtivos, "06", "2022");
     Double salarioPagarByData = method.salariosPagarByData(colaboradoresAtivos, "06", "2022");
+    Double beneficioPagarByData = method.beneficiosPagarByData(colaboradoresComBeneficio, "06", "2022");
 
     // System.out.println(totalPagarThisMes);
-    System.out.println("Total a pagar no mês selecionado R$: " + totalPagarByData);
-    System.out.println("Salários a pagar no mês selecionado R$: " + salarioPagarByData);
+    System.out.println("Total a pagar no mês selecionado R$: " +totalPagarByData);
+    System.out.println("Salários a pagar no mês selecionado R$: " +salarioPagarByData);
+    System.out.printf("Beneficios a pagar no mês selecionado R$: %.2f", beneficioPagarByData);
 
   }
-
+  
   /**
    * Mockando um getAll no banco de dados.
    * @return lista de funcionários ativos.
    */
   public static List<Colaborador> mockColaboradoresAtivos() {
-    ColaboradoresMock colabMock = new ColaboradoresMock();
-
     colabMock.mockListaColaboradores();
     colabMock.mockRegistroVendas();
 
     return colabMock.getListaColaboradores();
+  }
+
+  public static List<Colaborador> mockColaboradoresComBeneficio() {
+    return colabMock.getListaColaboradores()
+        .stream()
+        .filter((colab) -> colab.getCargo() != "Gerente")
+        .collect(Collectors.toList());
   }
 
 }

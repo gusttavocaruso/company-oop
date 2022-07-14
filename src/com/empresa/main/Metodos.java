@@ -36,13 +36,23 @@ public class Metodos {
     return total;
   }
 
-
   public Double salariosPagarByData(List<Colaborador> colabsAtivos, String mes, String ano) {
     Double total = 0.0;
 
     for (Colaborador colab : colabsAtivos) {
       concederAjustesSalarioByAno(colab, mes, ano);
       total += colab.getSalario();
+    }
+
+    return total;
+  }
+
+  public Double beneficiosPagarByData(List<Colaborador> colabsBenef, String mes, String ano) {
+    Double total = 0.0;
+
+    for (Colaborador colab : colabsBenef) {
+      concederAjustesSalarioByAno(colab, mes, ano);
+      total += colab.getBeneficio();
     }
 
     return total;
