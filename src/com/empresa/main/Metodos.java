@@ -36,6 +36,18 @@ public class Metodos {
     return total;
   }
 
+
+  public Double salariosPagarByData(List<Colaborador> colabsAtivos, String mes, String ano) {
+    Double total = 0.0;
+
+    for (Colaborador colab : colabsAtivos) {
+      concederAjustesSalarioByAno(colab, mes, ano);
+      total += colab.getSalario();
+    }
+
+    return total;
+  }
+
   /**
    * Método para conceder aumento anual no salário do colaborador de acordo com o cargo.
    * @param colab colaborador da lista de colaboradores ativos.
