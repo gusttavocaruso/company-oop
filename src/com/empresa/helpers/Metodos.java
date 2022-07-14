@@ -1,4 +1,4 @@
-package com.empresa.main;
+package com.empresa.helpers;
 
 import java.util.List;
 
@@ -56,6 +56,42 @@ public class Metodos {
     }
 
     return total;
+  }
+
+  public String maiorPagamentoByData(List<Colaborador> colabsAtivos, String mes, String ano) {
+    Double maiorPag = 0.0;
+    String colabMaiorPag = "";
+
+    for (Colaborador colab : colabsAtivos) {
+      concederAjustesSalarioByAno(colab, mes, ano);
+
+      if (colab.getCargo().equals("Gerente")) {
+        if (colab.getSalario() > maiorPag) {
+          colabMaiorPag = colab.getNome();
+        }
+      } else {
+        if ((colab.getSalario() + colab.getBeneficio()) > maiorPag) {
+          colabMaiorPag = colab.getNome();
+        }
+      }
+    }
+
+    return colabMaiorPag;
+  }
+
+  public String maiorBeneficioByData(List<Colaborador> colabsBenef, String mes, String ano) {
+    Double maiorBen = 0.0;
+    String colabMaiorBen = "";
+
+    for (Colaborador colab : colabsBenef) {
+      concederAjustesSalarioByAno(colab, mes, ano);
+
+      if (colab.getBeneficio() > maiorBen) {
+        colabMaiorBen = colab.getNome();
+      }
+    }
+
+    return colabMaiorBen;
   }
 
   /**

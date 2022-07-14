@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.empresa.entities.Colaborador;
+import com.empresa.helpers.ColaboradoresMock;
+import com.empresa.helpers.Metodos;
 
 public class Main {
 
@@ -19,11 +21,15 @@ public class Main {
     Double totalPagarByData = method.totalPagarByData(colaboradoresAtivos, "06", "2022");
     Double salarioPagarByData = method.salariosPagarByData(colaboradoresAtivos, "06", "2022");
     Double beneficioPagarByData = method.beneficiosPagarByData(colaboradoresComBeneficio, "06", "2022");
+    String maiorSalarioByData = method.maiorPagamentoByData(colaboradoresAtivos, "06", "2022");
+    String maiorBeneficioByData = method.maiorBeneficioByData(colaboradoresAtivos, "06", "2022");
 
     // System.out.println(totalPagarThisMes);
     System.out.println("Total a pagar no mês selecionado R$: " +totalPagarByData);
     System.out.println("Salários a pagar no mês selecionado R$: " +salarioPagarByData);
     System.out.printf("Beneficios a pagar no mês selecionado R$: %.2f", beneficioPagarByData);
+    System.out.println("O colaborador que mais recebeu no mês selecionado foi o " +maiorSalarioByData);
+    System.out.println("O colaborador que mais recebeu beneficios no mês selecionado foi o " +maiorBeneficioByData);
 
   }
   
