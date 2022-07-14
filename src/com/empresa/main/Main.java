@@ -22,7 +22,7 @@ public class Main {
     Double salarioPagarByData = method.salariosPagarByData(colaboradoresAtivos, "06", "2022");
     Double beneficioPagarByData = method.beneficiosPagarByData(colaboradoresComBeneficio, "06", "2022");
     String maiorSalarioByData = method.maiorPagamentoByData(colaboradoresAtivos, "06", "2022");
-    String maiorBeneficioByData = method.maiorBeneficioByData(colaboradoresAtivos, "06", "2022");
+    String maiorBeneficioByData = method.maiorBeneficioByData(colaboradoresComBeneficio, "06", "2022");
 
     // System.out.println(totalPagarThisMes);
     System.out.println("Total a pagar no mês selecionado R$: " +totalPagarByData);
