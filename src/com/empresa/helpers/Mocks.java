@@ -1,22 +1,16 @@
 package com.empresa.helpers;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import com.empresa.entities.Colaborador;
 import com.empresa.entities.Gerente;
 import com.empresa.entities.Secretario;
 import com.empresa.entities.Vendedor;
 
-public class ColaboradoresMock {
+public class Mocks {
 
-  // private Colaborador colab = new Colaborador();
   private List<Colaborador> colabList = new ArrayList<>();
-
-  private Map<String, Map<String, Integer>> registroVendas = new HashMap<>();
-  private Map<String, Integer> vendas = new HashMap<>();
 
   Vendedor anaSilva = new Vendedor("Ana Silva", "12/2021");
   Vendedor joaoMendes = new Vendedor("João Mendes", "12/2021");
@@ -35,17 +29,25 @@ public class ColaboradoresMock {
   }
 
   public void mockRegistroVendas() {
-    vendas.put("12/2021", 5200);
-    vendas.put("01/2022", 4000);
-    vendas.put("02/2022", 4200);
-    vendas.put("03/2022", 5850);
-    vendas.put("04/2022", 7000);
+    anaSilva.addVendaByData("12/2021", 5200);
+    anaSilva.addVendaByData("01/2022", 4000);
+    anaSilva.addVendaByData("02/2022", 4200);
+    anaSilva.addVendaByData("03/2022", 5850);
+    anaSilva.addVendaByData("04/2022", 7000);
 
-    registroVendas.put("Ana Silva", vendas);
+    joaoMendes.addVendaByData("12/2021", 3400);
+    joaoMendes.addVendaByData("01/2022", 7700);
+    joaoMendes.addVendaByData("02/2022", 5000);
+    joaoMendes.addVendaByData("03/2022", 5900);
+    joaoMendes.addVendaByData("04/2022", 6500);
   }
 
-  public Map<String, Integer> getRegistroVendas() {
-    return anaSilva.getRegistroVendas();
+  public Vendedor getAnaSilva() {
+    return anaSilva;
+  }
+
+  public Vendedor getJoaoMendes() {
+    return joaoMendes;
   }
 
 }

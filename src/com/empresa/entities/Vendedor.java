@@ -10,7 +10,7 @@ public class Vendedor extends Colaborador {
   public Vendedor(String nome, String contratacao) {
     super(nome, "Vendedor", contratacao);
     this.setSalario(12000);
-    this.setBeneficio(0.3);
+    this.setBeneficio(0.0);
     this.setBonusAnual(1800);
     this.registroVendas = new HashMap<>();
   }
@@ -23,9 +23,11 @@ public class Vendedor extends Colaborador {
     this.registroVendas.put(data, totalVendas);
   }
 
-  public Double getComissaoByMes(String data) {
+  public void getComissaoByMes(String data) {
     Integer vendasMes = this.getRegistroVendas().get(data);
-    return this.getBeneficio() * vendasMes;
+    if (vendasMes != null) {
+      this.setBeneficio(vendasMes * 0.3);
+    }
   }
 
 }

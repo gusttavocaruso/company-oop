@@ -4,12 +4,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.empresa.entities.Colaborador;
-import com.empresa.helpers.ColaboradoresMock;
+import com.empresa.helpers.Mocks;
 import com.empresa.helpers.Metodos;
 
 public class Main {
 
-  static final ColaboradoresMock colabMock = new ColaboradoresMock();
+  static final Mocks mock = new Mocks();
   static final Metodos method = new Metodos();
 
   public static void main(String[] args) {
@@ -32,20 +32,20 @@ public class Main {
     System.out.println("O colaborador que mais recebeu beneficios no mês selecionado foi o " +maiorBeneficioByData);
 
   }
-  
+
   /**
    * Mockando um getAll no banco de dados.
    * @return lista de funcionários ativos.
    */
   public static List<Colaborador> mockColaboradoresAtivos() {
-    colabMock.mockListaColaboradores();
-    colabMock.mockRegistroVendas();
+    mock.mockListaColaboradores();
+    mock.mockRegistroVendas();
 
-    return colabMock.getListaColaboradores();
+    return mock.getListaColaboradores();
   }
 
   public static List<Colaborador> mockColaboradoresComBeneficio() {
-    return colabMock.getListaColaboradores()
+    return mock.getListaColaboradores()
         .stream()
         .filter((colab) -> colab.getCargo() != "Gerente")
         .collect(Collectors.toList());

@@ -1,10 +1,11 @@
 package com.empresa.helpers;
 
 import java.util.List;
-
 import com.empresa.entities.Colaborador;
 
 public class Metodos {
+
+  static final Mocks mocks = new Mocks();
 
   public Double totalPagarMes(List<Colaborador> colaboradoresAtivos) {
     Double total = 0.0;
@@ -25,6 +26,7 @@ public class Metodos {
 
     for (Colaborador colab : colabsAtivos) {
       concederAjustesSalarioByAno(colab, mes, ano);
+      setarComissaoVendedorByData(colab, mes, ano);
 
       if (colab.getCargo().equals("Gerente")) {
         total += (colab.getSalario());
@@ -52,6 +54,8 @@ public class Metodos {
 
     for (Colaborador colab : colabsBenef) {
       concederAjustesSalarioByAno(colab, mes, ano);
+      setarComissaoVendedorByData(colab, mes, ano);
+
       total += colab.getBeneficio();
     }
 
@@ -64,6 +68,7 @@ public class Metodos {
 
     for (Colaborador colab : colabsAtivos) {
       concederAjustesSalarioByAno(colab, mes, ano);
+      setarComissaoVendedorByData(colab, mes, ano);
 
       if (colab.getCargo().equals("Gerente")) {
         if (colab.getSalario() > maiorPag) {
@@ -85,6 +90,7 @@ public class Metodos {
 
     for (Colaborador colab : colabsBenef) {
       concederAjustesSalarioByAno(colab, mes, ano);
+      setarComissaoVendedorByData(colab, mes, ano);
 
       if (colab.getBeneficio() > maiorBen) {
         colabMaiorBen = colab.getNome();
@@ -110,6 +116,17 @@ public class Metodos {
     while (cc != 0) {
       colab.adicionarAumentoAnual();
       cc -= 1;
+    }
+  }
+
+  public void setarComissaoVendedorByData(Colaborador colab, String mes, String ano) {
+    var anaSilva = mocks.getAnaSilva();
+    var joaoMendes = mocks.getJoaoMendes();
+
+    if (colab.getNome().equals("Ana Silva")) {
+      anaSilva.getComissaoByMes(String.join("/", mes, ano));
+    } else if (colab.getNome().equals("João Mendes")) {
+      joaoMendes.getComissaoByMes(String.join("/", mes, ano));
     }
   }
 

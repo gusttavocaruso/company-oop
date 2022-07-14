@@ -8,9 +8,4 @@ public class Gerente extends Colaborador {
     this.setBonusAnual(3000);
   }
 
-  // // @Override
-  // public void adicionarAumentoAnual() {
-  //   this.setSalario(this.getSalario() + 3000);
-  // }
-
 }
