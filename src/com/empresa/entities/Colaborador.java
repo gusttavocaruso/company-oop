@@ -1,8 +1,5 @@
 package com.empresa.entities;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Colaborador {
 
   private String nome;
@@ -13,17 +10,10 @@ public class Colaborador {
   private Double beneficio;
   private Integer bonusAnual;
 
-  public List<Colaborador> listaColaboradores;
-
-  public Colaborador() {
-    this.listaColaboradores = new ArrayList<>();
-  }
-
   public Colaborador(String nome, String cargo, String contratacao) {
     this.nome = nome;
     this.cargo = cargo;
     this.contratacao = contratacao;
-    this.listaColaboradores = new ArrayList<>();
   }
 
   public String getNome() {
@@ -72,14 +62,6 @@ public class Colaborador {
 
   public void setBonusAnual(Integer bonusAnual) {
     this.bonusAnual = bonusAnual;
-  }
-
-  public List<Colaborador> listarColaboradoresAtivos() {
-    return this.listaColaboradores;
-  }
-
-  public void addColaborador(Colaborador novoFuncionario) {
-    this.listaColaboradores.add(novoFuncionario);
   }
 
   public void adicionarAumentoAnual() {
