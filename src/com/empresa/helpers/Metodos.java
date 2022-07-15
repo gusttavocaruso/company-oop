@@ -120,6 +120,30 @@ public class Metodos {
     return colabMaiorBen;
   }
 
+  public String maiorVendedorByMes(List<Colaborador> vendedores, String mes, String ano) {
+    Double maiorVenda = 0.0;
+    String vendedorMaiorVenda = "";
+
+    for (Colaborador colab : vendedores) {
+      concederAjustesSalarioByAno(colab, mes, ano);
+      setarComissaoVendedorByData(colab, mes, ano);
+
+      var venda = colab.getRegistroVendas().get(String.join("/", mes, ano));
+
+      if (venda == null) {
+        vendedorMaiorVenda = "Não há vendas para esse mês";
+      } else if (venda > maiorVenda) {
+        vendedorMaiorVenda = colab.getNome();
+      }
+    }
+
+    mocks.getListaColaboradores().clear();
+    mocks.mockListaColaboradores();
+    mocks.mockRegistroVendas();
+
+    return vendedorMaiorVenda;
+  }
+
   /**
    * Método para conceder aumento anual no salário do colaborador de acordo com o cargo.
    * @param colab colaborador da lista de colaboradores ativos.

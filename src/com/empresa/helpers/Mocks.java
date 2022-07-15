@@ -13,10 +13,9 @@ public class Mocks {
   private List<Colaborador> colabList = new ArrayList<>();
 
   public void mockListaColaboradores() {
-
     colabList.add(new Secretario("Jorge Carvalho", "01/2018"));
     colabList.add(new Secretario("Maria Souza", "12/2015"));
-    colabList.add(new Vendedor("Ana Silva", "12/2020"));
+    colabList.add(new Vendedor("Ana Silva", "12/2021"));
     colabList.add(new Vendedor("João Mendes", "12/2021"));
     colabList.add(new Gerente("Juliana Alves", "07/2017"));
     colabList.add(new Gerente("Bento Albino", "03/2014"));
@@ -28,7 +27,6 @@ public class Mocks {
 
   public void mockRegistroVendas() {
     for (Colaborador colab : getListaColaboradores()) {
-
       if (colab.getNome().equals("Ana Silva")) {
         colab.addVendaByData("12/2021", 5200);
         colab.addVendaByData("01/2022", 4000);
@@ -42,7 +40,6 @@ public class Mocks {
         colab.addVendaByData("03/2022", 5900);
         colab.addVendaByData("04/2022", 6500);
       }
-
     }
 
   }

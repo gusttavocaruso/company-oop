@@ -17,6 +17,7 @@ public class Main {
     mock.mockListaColaboradores();
     var colabsAtivos = mock.getListaColaboradores();
     var colabsComBeneficio = mockColaboradoresComBeneficio();
+    var vendedores = mockVendedores();
     mock.mockRegistroVendas();
 
     // Double totalPagarThisMes = method.totalPagarMes(colabsAtivos);
@@ -25,6 +26,7 @@ public class Main {
     Double beneficioPagarByData = method.beneficiosPagarByData(colabsComBeneficio, "12", "2021");
     String maiorSalarioByData = method.maiorPagamentoByData(colabsAtivos, "06", "2022");
     String maiorBeneficioByData = method.maiorBeneficioByData(colabsComBeneficio, "06", "2022");
+    String vendedorMaisVendas = method.maiorVendedorByMes(vendedores, "01", "2022");
 
     // System.out.println(totalPagarThisMes);
     System.out.println("Total a pagar no mês selecionado R$: " +totalPagarByData);
@@ -32,6 +34,7 @@ public class Main {
     System.out.println("Beneficios a pagar no mês selecionado R$: " +beneficioPagarByData);
     System.out.println("O colaborador que mais recebeu no mês selecionado foi o " +maiorSalarioByData);
     System.out.println("O colaborador que mais recebeu beneficios no mês selecionado foi o " +maiorBeneficioByData);
+    System.out.println("O vendedor que mais recebeu vendeu no mês selecionado foi o " +vendedorMaisVendas);
 
   }
 
@@ -39,6 +42,13 @@ public class Main {
     return mock.getListaColaboradores()
         .stream()
         .filter((colab) -> colab.getCargo() != "Gerente")
+        .collect(Collectors.toList());
+  }
+
+  public static List<Colaborador> mockVendedores() {
+    return mock.getListaColaboradores()
+        .stream()
+        .filter((colab) -> colab.getCargo().equals("Vendedor"))
         .collect(Collectors.toList());
   }
 
