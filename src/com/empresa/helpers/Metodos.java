@@ -35,6 +35,10 @@ public class Metodos {
       }
     }
 
+    mocks.getListaColaboradores().clear();
+    mocks.mockListaColaboradores();
+    mocks.mockRegistroVendas();
+
     return total;
   }
 
@@ -45,6 +49,10 @@ public class Metodos {
       concederAjustesSalarioByAno(colab, mes, ano);
       total += colab.getSalario();
     }
+
+    mocks.getListaColaboradores().clear();
+    mocks.mockListaColaboradores();
+    mocks.mockRegistroVendas();
 
     return total;
   }
@@ -58,6 +66,10 @@ public class Metodos {
 
       total += colab.getBeneficio();
     }
+
+    mocks.getListaColaboradores().clear();
+    mocks.mockListaColaboradores();
+    mocks.mockRegistroVendas();
 
     return total;
   }
@@ -81,6 +93,10 @@ public class Metodos {
       }
     }
 
+    mocks.getListaColaboradores().clear();
+    mocks.mockListaColaboradores();
+    mocks.mockRegistroVendas();
+
     return colabMaiorPag;
   }
 
@@ -96,6 +112,10 @@ public class Metodos {
         colabMaiorBen = colab.getNome();
       }
     }
+
+    mocks.getListaColaboradores().clear();
+    mocks.mockListaColaboradores();
+    mocks.mockRegistroVendas();
 
     return colabMaiorBen;
   }
@@ -119,15 +139,17 @@ public class Metodos {
     }
   }
 
+  /**
+   * Método para gerar comissão para os vendedores referente ao mês.
+   */
   public void setarComissaoVendedorByData(Colaborador colab, String mes, String ano) {
-    var anaSilva = mocks.getAnaSilva();
-    var joaoMendes = mocks.getJoaoMendes();
 
     if (colab.getNome().equals("Ana Silva")) {
-      anaSilva.getComissaoByMes(String.join("/", mes, ano));
+      colab.setComissaoByMes(String.join("/", mes, ano));
     } else if (colab.getNome().equals("João Mendes")) {
-      joaoMendes.getComissaoByMes(String.join("/", mes, ano));
+      colab.setComissaoByMes(String.join("/", mes, ano));
     }
+
   }
 
 }

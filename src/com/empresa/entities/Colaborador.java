@@ -1,5 +1,7 @@
 package com.empresa.entities;
 
+import java.util.Map;
+
 public class Colaborador {
 
   private String nome;
@@ -9,6 +11,8 @@ public class Colaborador {
   private Integer salario;
   private Double beneficio;
   private Integer bonusAnual;
+
+  public Map<String, Integer> registroVendas;
 
   public Colaborador(String nome, String cargo, String contratacao) {
     this.nome = nome;
@@ -66,6 +70,21 @@ public class Colaborador {
 
   public void adicionarAumentoAnual() {
     this.setSalario(this.getSalario() + this.bonusAnual);
+  }
+
+  public void addVendaByData(String data, Integer totalVendas) {
+    this.registroVendas.put(data, totalVendas);
+  }
+
+  public void setComissaoByMes(String data) {
+    Integer vendasMes = this.getRegistroVendas().get(data);
+    if (vendasMes != null) {
+      this.setBeneficio(vendasMes * 0.3);
+    }
+  }
+
+  public Map<String, Integer> getRegistroVendas() {
+    return this.registroVendas;
   }
 
 }

@@ -14,34 +14,25 @@ public class Main {
 
   public static void main(String[] args) {
 
-    var colaboradoresAtivos = mockColaboradoresAtivos();
-    var colaboradoresComBeneficio = mockColaboradoresComBeneficio();
+    mock.mockListaColaboradores();
+    var colabsAtivos = mock.getListaColaboradores();
+    var colabsComBeneficio = mockColaboradoresComBeneficio();
+    mock.mockRegistroVendas();
 
-    // Double totalPagarThisMes = method.totalPagarMes(colaboradoresAtivos);
-    Double totalPagarByData = method.totalPagarByData(colaboradoresAtivos, "06", "2022");
-    Double salarioPagarByData = method.salariosPagarByData(colaboradoresAtivos, "06", "2022");
-    Double beneficioPagarByData = method.beneficiosPagarByData(colaboradoresComBeneficio, "06", "2022");
-    String maiorSalarioByData = method.maiorPagamentoByData(colaboradoresAtivos, "06", "2022");
-    String maiorBeneficioByData = method.maiorBeneficioByData(colaboradoresComBeneficio, "06", "2022");
+    // Double totalPagarThisMes = method.totalPagarMes(colabsAtivos);
+    Double totalPagarByData = method.totalPagarByData(colabsAtivos, "06", "2022");
+    Double salarioPagarByData = method.salariosPagarByData(colabsAtivos, "06", "2022");
+    Double beneficioPagarByData = method.beneficiosPagarByData(colabsComBeneficio, "12", "2021");
+    String maiorSalarioByData = method.maiorPagamentoByData(colabsAtivos, "06", "2022");
+    String maiorBeneficioByData = method.maiorBeneficioByData(colabsComBeneficio, "06", "2022");
 
     // System.out.println(totalPagarThisMes);
     System.out.println("Total a pagar no mês selecionado R$: " +totalPagarByData);
     System.out.println("Salários a pagar no mês selecionado R$: " +salarioPagarByData);
-    System.out.printf("Beneficios a pagar no mês selecionado R$: %.2f", beneficioPagarByData);
+    System.out.println("Beneficios a pagar no mês selecionado R$: " +beneficioPagarByData);
     System.out.println("O colaborador que mais recebeu no mês selecionado foi o " +maiorSalarioByData);
     System.out.println("O colaborador que mais recebeu beneficios no mês selecionado foi o " +maiorBeneficioByData);
 
-  }
-
-  /**
-   * Mockando um getAll no banco de dados.
-   * @return lista de funcionários ativos.
-   */
-  public static List<Colaborador> mockColaboradoresAtivos() {
-    mock.mockListaColaboradores();
-    mock.mockRegistroVendas();
-
-    return mock.getListaColaboradores();
   }
 
   public static List<Colaborador> mockColaboradoresComBeneficio() {

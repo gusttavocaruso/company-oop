@@ -5,8 +5,6 @@ import java.util.Map;
 
 public class Vendedor extends Colaborador {
 
-  private Map<String, Integer> registroVendas;
-
   public Vendedor(String nome, String contratacao) {
     super(nome, "Vendedor", contratacao);
     this.setSalario(12000);
@@ -15,10 +13,12 @@ public class Vendedor extends Colaborador {
     this.registroVendas = new HashMap<>();
   }
 
+  @Override
   public Map<String, Integer> getRegistroVendas() {
     return this.registroVendas;
   }
 
+  @Override
   public void addVendaByData(String data, Integer totalVendas) {
     this.registroVendas.put(data, totalVendas);
   }
