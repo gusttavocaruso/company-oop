@@ -1,2 +1,2 @@
-# company-opp
+# company-oop
 Oriented Object Programming pratice
